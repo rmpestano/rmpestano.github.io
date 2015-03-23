@@ -1,7 +1,5 @@
-
-
-
 = Computer benchmarks based on JavaEE integration & functional tests
+:numbered:
 :toc:
 :icons: font
 :linkattrs:
