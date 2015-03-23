@@ -23,7 +23,7 @@
     <meta property="og:description" content="the code package com.myapp.util; import java.io.Serializable; import java.util.*; import javax.enterprise.context.RequestScoped; /**  * Created by rafael-pestano on 15/03/2015.  *  * A simple utility component for building &quot;ifless&quot; assertions  *  */ @RequestScoped public class Assertion implements Serializable{   private..." />
     <meta property="og:url" content="https://rmpestano.github.io/2015/03/22/A-simple-component-for-building-ifless-assertions.html" />
     <meta property="article:published_time" content="2015-03-22T03:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-03-23T11:54:02.567Z" />
+    <meta property="article:modified_time" content="2015-03-23T12:02:44.988Z" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="A simple component for building &quot;ifless&quot; assertions" />
@@ -45,7 +45,7 @@
     "headline": "A simple component for building &quot;ifless&quot; assertions",
     "url": "https://rmpestano.github.io/2015/03/22/A-simple-component-for-building-ifless-assertions.html",
     "datePublished": "2015-03-22T03:00:00.000Z",
-    "dateModified": "2015-03-23T11:54:02.567Z",
+    "dateModified": "2015-03-23T12:02:44.988Z",
     "description": "the code package com.myapp.util; import java.io.Serializable; import java.util.*; import javax.enterprise.context.RequestScoped; /**  * Created by rafael-pestano on 15/03/2015.  *  * A simple utility component for building &quot;ifless&quot; assertions  *  */ @RequestScoped public class Assertion implements Serializable{   private..."
 }
     </script>
@@ -513,11 +513,13 @@ Assertion assertion;
 
 
 public void aMethod(Foo foo){
-  assertion.notNull(foo).
-  hasText(foo.aProperty).isFalse(someLogic()).
-  thowIfAnyFalse("error message")
-  //if nothing is thrown you can still asserting
-  .isEmpty(foo.array).isFalse(someLogic()).thowIfAllFalse("another message");
+  assertion.notNull(foo). <i class="conum" data-value="1"></i><b>(1)</b>
+  hasText(foo.aProperty). <i class="conum" data-value="2"></i><b>(2)</b>
+  isFalse(someLogic()).
+  thowIfAnyFalse("error message") <i class="conum" data-value="3"></i><b>(3)</b>
+  .isEmpty(foo.array).  <i class="conum" data-value="4"></i><b>(4)</b>
+  isFalse(someLogic()).
+  thowIfAllFalse("another message");  <i class="conum" data-value="5"></i><b>(5)</b>
 
   //same as
   if(foo == null || "".equals(foo.aProperty) || !someLogic()){
@@ -529,6 +531,30 @@ public void aMethod(Foo foo){
   }
 }</code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>if foo is null, a false assertion will be queued in the builder</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>if foo.aProperty is null or has no text a false assertion will be queued in the builder</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>if there is any false assertion queued an exception will be thrown, also note that queued assertions are reset on throw even if no excetion is threw</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>if no exception has been threw you can keep asserting</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>throw an exception if there is only false assertion queued</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
