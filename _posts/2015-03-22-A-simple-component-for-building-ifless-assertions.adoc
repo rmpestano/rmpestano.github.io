@@ -1,4 +1,9 @@
 = A simple component for building "ifless" assertions
+:icons: font
+:linkattrs:
+:sectanchors:
+:sectlink:
+:experimental:
 
 == the code
 
