@@ -432,11 +432,13 @@ Assertion assertion;
 
 
 public void aMethod(Foo foo){
-  assertion.notNull(foo).
-  hasText(foo.aProperty).isFalse(someLogic()).
-  thowIfAnyFalse("error message")
-  //if nothing is thrown you can still asserting
-  .isEmpty(foo.array).isFalse(someLogic()).thowIfAllFalse("another message");
+  assertion.notNull(foo). // <1>
+  hasText(foo.aProperty). // <2>
+  isFalse(someLogic()). 
+  thowIfAnyFalse("error message") // <3>
+  .isEmpty(foo.array).  <4>
+  isFalse(someLogic()).
+  thowIfAllFalse("another message");  <5>
    
   //same as
   if(foo == null || "".equals(foo.aProperty) || !someLogic()){
@@ -448,4 +450,8 @@ public void aMethod(Foo foo){
   }
 }
 ----
-
+<1> if foo is null, a false assertion will be queued in the builder
+<2> if foo.aProperty is null or has no text a false assertion will be queued in the builder
+<3> if there is any false assertion queued an exception will be thrown, also note that queued assertions are reset on throw even if no excetion is threw
+<4> if no exception has been threw you can keep asserting
+<5> throw an exception if there is only false assertion queued
