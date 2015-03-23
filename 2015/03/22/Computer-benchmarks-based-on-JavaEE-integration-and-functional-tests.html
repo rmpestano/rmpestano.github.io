@@ -23,7 +23,7 @@
     <meta property="og:description" content="access it using docgist here mvn -version Apache Maven 3.0.5 Maven home: /usr/share/maven Java version: 1.8.0_40, vendor: Oracle Corporation Java home: /usr/lib/jvm/java-8-oracle/jre Default locale: en_US, platform encoding: UTF-8..." />
     <meta property="og:url" content="https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html" />
     <meta property="article:published_time" content="2015-03-22T03:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-03-23T01:11:32.725Z" />
+    <meta property="article:modified_time" content="2015-03-23T01:12:32.759Z" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Computer benchmarks based on JavaEE integration &amp; functional tests" />
@@ -45,7 +45,7 @@
     "headline": "Computer benchmarks based on JavaEE integration &amp; functional tests",
     "url": "https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html",
     "datePublished": "2015-03-22T03:00:00.000Z",
-    "dateModified": "2015-03-23T01:11:32.725Z",
+    "dateModified": "2015-03-23T01:12:32.759Z",
     "description": "access it using docgist here mvn -version Apache Maven 3.0.5 Maven home: /usr/share/maven Java version: 1.8.0_40, vendor: Oracle Corporation Java home: /usr/lib/jvm/java-8-oracle/jre Default locale: en_US, platform encoding: UTF-8..."
 }
     </script>
@@ -98,7 +98,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_results"><a class="anchor" href="#_results"></a>Results</h2>
+<h2 id="_results"><a class="anchor" href="#_results"></a>1. Results</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -145,18 +145,18 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_projects"><a class="anchor" href="#_projects"></a>Projects</h2>
+<h2 id="_projects"><a class="anchor" href="#_projects"></a>2. Projects</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>restart your machine before each project</p>
 </div>
 <div class="sect2">
-<h3 id="__a_href_http_github_com_rmpestano_intrabundle_intrabundle_project_a"><a class="anchor" href="#__a_href_http_github_com_rmpestano_intrabundle_intrabundle_project_a"></a><a href="http://github.com/rmpestano/intrabundle">Intrabundle project</a></h3>
+<h3 id="__a_href_http_github_com_rmpestano_intrabundle_intrabundle_project_a"><a class="anchor" href="#__a_href_http_github_com_rmpestano_intrabundle_intrabundle_project_a"></a>2.1. <a href="http://github.com/rmpestano/intrabundle">Intrabundle project</a></h3>
 <div class="paragraph">
 <p>integration tests using JBoss forge</p>
 </div>
 <div class="sect3">
-<h4 id="_checkout_sources"><a class="anchor" href="#_checkout_sources"></a>checkout sources</h4>
+<h4 id="_checkout_sources"><a class="anchor" href="#_checkout_sources"></a>2.1.1. checkout sources</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -172,7 +172,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_download_maven_dependencies"><a class="anchor" href="#_download_maven_dependencies"></a>download maven dependencies</h4>
+<h4 id="_download_maven_dependencies"><a class="anchor" href="#_download_maven_dependencies"></a>2.1.2. download maven dependencies</h4>
 <div class="listingblock">
 <div class="content">
 <pre>mvn dependency:tree -Ptests</pre>
@@ -181,14 +181,14 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_execute_build_and_tests"><a class="anchor" href="#_execute_build_and_tests"></a>Execute build and tests</h3>
+<h3 id="_execute_build_and_tests"><a class="anchor" href="#_execute_build_and_tests"></a>2.2. Execute build and tests</h3>
 <div class="listingblock">
 <div class="content">
 <pre>mvn clean test -Ptests</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_execute_build_and_tests_using_jacoco_agent"><a class="anchor" href="#_execute_build_and_tests_using_jacoco_agent"></a>Execute build and tests using Jacoco agent</h4>
+<h4 id="_execute_build_and_tests_using_jacoco_agent"><a class="anchor" href="#_execute_build_and_tests_using_jacoco_agent"></a>2.2.1. Execute build and tests using Jacoco agent</h4>
 <div class="listingblock">
 <div class="content">
 <pre>mvn clean test -P tests -Pjacoco</pre>
@@ -197,12 +197,12 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="__a_href_http_github_com_rmpestano_cdi_crud_cdi_crud_project_a"><a class="anchor" href="#__a_href_http_github_com_rmpestano_cdi_crud_cdi_crud_project_a"></a><a href="http://github.com/rmpestano/cdi-crud">cdi-crud project</a></h3>
+<h3 id="__a_href_http_github_com_rmpestano_cdi_crud_cdi_crud_project_a"><a class="anchor" href="#__a_href_http_github_com_rmpestano_cdi_crud_cdi_crud_project_a"></a>2.3. <a href="http://github.com/rmpestano/cdi-crud">cdi-crud project</a></h3>
 <div class="paragraph">
 <p>Java EE project with various kinds of Arquillian tests (it, ft, bdd)</p>
 </div>
 <div class="sect3">
-<h4 id="_checkout_sources_2"><a class="anchor" href="#_checkout_sources_2"></a>checkout sources</h4>
+<h4 id="_checkout_sources_2"><a class="anchor" href="#_checkout_sources_2"></a>2.3.1. checkout sources</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -218,7 +218,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_download_dependencies"><a class="anchor" href="#_download_dependencies"></a>Download dependencies</h4>
+<h4 id="_download_dependencies"><a class="anchor" href="#_download_dependencies"></a>2.3.2. Download dependencies</h4>
 <div class="listingblock">
 <div class="content">
 <pre>mvn dependency:tree -P wildfly-managed</pre>
@@ -226,7 +226,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_execute_build_and_tests_2"><a class="anchor" href="#_execute_build_and_tests_2"></a>Execute build and tests</h4>
+<h4 id="_execute_build_and_tests_2"><a class="anchor" href="#_execute_build_and_tests_2"></a>2.3.3. Execute build and tests</h4>
 <div class="listingblock">
 <div class="content">
 <pre>mvn clean package -P tests -P wildfly-managed -Dversion.selenium=2.45.0</pre>
@@ -237,7 +237,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_execute_build_and_tests_with_jacoco_agent"><a class="anchor" href="#_execute_build_and_tests_with_jacoco_agent"></a>Execute build and tests with jacoco agent</h4>
+<h4 id="_execute_build_and_tests_with_jacoco_agent"><a class="anchor" href="#_execute_build_and_tests_with_jacoco_agent"></a>2.3.4. Execute build and tests with jacoco agent</h4>
 <div class="listingblock">
 <div class="content">
 <pre>mvn clean package -P tests -P wildfly-managed -Pjacoco -Dversion.selenium=2.45.0</pre>
@@ -246,12 +246,12 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="__a_href_http_github_com_conventions_archetype_conventions_archetype_project_a"><a class="anchor" href="#__a_href_http_github_com_conventions_archetype_conventions_archetype_project_a"></a><a href="http://github.com/conventions/archetype">conventions archetype project</a></h3>
+<h3 id="__a_href_http_github_com_conventions_archetype_conventions_archetype_project_a"><a class="anchor" href="#__a_href_http_github_com_conventions_archetype_conventions_archetype_project_a"></a>2.4. <a href="http://github.com/conventions/archetype">conventions archetype project</a></h3>
 <div class="paragraph">
 <p>A bit more complex Java EE project with various kinds of Arquillian tests (it, ft, bdd)</p>
 </div>
 <div class="sect3">
-<h4 id="_checkout_sources_3"><a class="anchor" href="#_checkout_sources_3"></a>checkout sources</h4>
+<h4 id="_checkout_sources_3"><a class="anchor" href="#_checkout_sources_3"></a>2.4.1. checkout sources</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -267,7 +267,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_download_dependencies_2"><a class="anchor" href="#_download_dependencies_2"></a>Download dependencies</h4>
+<h4 id="_download_dependencies_2"><a class="anchor" href="#_download_dependencies_2"></a>2.4.2. Download dependencies</h4>
 <div class="listingblock">
 <div class="content">
 <pre>mvn dependency:tree -P wildfly-managed</pre>
@@ -275,7 +275,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_execute_build_and_tests_3"><a class="anchor" href="#_execute_build_and_tests_3"></a>Execute build and tests</h4>
+<h4 id="_execute_build_and_tests_3"><a class="anchor" href="#_execute_build_and_tests_3"></a>2.4.3. Execute build and tests</h4>
 <div class="listingblock">
 <div class="content">
 <pre>mvn clean package -P all-tests -P wildfly-managed -Dversion.selenium=2.45.0</pre>
@@ -283,7 +283,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_execute_build_and_tests_with_jacoco_agent_2"><a class="anchor" href="#_execute_build_and_tests_with_jacoco_agent_2"></a>Execute build and tests with jacoco agent</h4>
+<h4 id="_execute_build_and_tests_with_jacoco_agent_2"><a class="anchor" href="#_execute_build_and_tests_with_jacoco_agent_2"></a>2.4.4. Execute build and tests with jacoco agent</h4>
 <div class="listingblock">
 <div class="content">
 <pre>mvn clean package -P all-tests -P wildfly-managed -Pjacoco -Dversion.selenium=2.45.0</pre>
@@ -294,10 +294,10 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_computers_benchmark"><a class="anchor" href="#_computers_benchmark"></a>Computers benchmark</h2>
+<h2 id="_computers_benchmark"><a class="anchor" href="#_computers_benchmark"></a>3. Computers benchmark</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_notebook_asus_s46cb"><a class="anchor" href="#_notebook_asus_s46cb"></a>Notebook Asus S46cb</h3>
+<h3 id="_notebook_asus_s46cb"><a class="anchor" href="#_notebook_asus_s46cb"></a>3.1. Notebook Asus S46cb</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -315,7 +315,7 @@ ubuntu 14.04</pre>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_intrabundle_build_and_tests"><a class="anchor" href="#_intrabundle_build_and_tests"></a>intrabundle build and tests</h4>
+<h4 id="_intrabundle_build_and_tests"><a class="anchor" href="#_intrabundle_build_and_tests"></a>3.1.1. intrabundle build and tests</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -356,7 +356,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_intrabundle_build_and_tests_with_jacoco_agent"><a class="anchor" href="#_intrabundle_build_and_tests_with_jacoco_agent"></a>intrabundle build and tests with jacoco agent</h4>
+<h4 id="_intrabundle_build_and_tests_with_jacoco_agent"><a class="anchor" href="#_intrabundle_build_and_tests_with_jacoco_agent"></a>3.1.2. intrabundle build and tests with jacoco agent</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -397,7 +397,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_cdi_crud_build_and_tests"><a class="anchor" href="#_cdi_crud_build_and_tests"></a>cdi-crud build and tests</h4>
+<h4 id="_cdi_crud_build_and_tests"><a class="anchor" href="#_cdi_crud_build_and_tests"></a>3.1.3. cdi-crud build and tests</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -454,7 +454,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_cdi_crud_build_and_tests_with_jacoco_agent"><a class="anchor" href="#_cdi_crud_build_and_tests_with_jacoco_agent"></a>cdi-crud build and tests with jacoco agent</h4>
+<h4 id="_cdi_crud_build_and_tests_with_jacoco_agent"><a class="anchor" href="#_cdi_crud_build_and_tests_with_jacoco_agent"></a>3.1.4. cdi-crud build and tests with jacoco agent</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -519,7 +519,7 @@ ubuntu 14.04</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_archetype_build_and_tests"><a class="anchor" href="#_archetype_build_and_tests"></a>archetype build and tests</h4>
+<h4 id="_archetype_build_and_tests"><a class="anchor" href="#_archetype_build_and_tests"></a>3.1.5. archetype build and tests</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -571,7 +571,7 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 </div>
 </div>
 <div class="sect3">
-<h4 id="_archetype_build_and_tests_using_jacoco_agent"><a class="anchor" href="#_archetype_build_and_tests_using_jacoco_agent"></a>archetype build and tests using Jacoco agent</h4>
+<h4 id="_archetype_build_and_tests_using_jacoco_agent"><a class="anchor" href="#_archetype_build_and_tests_using_jacoco_agent"></a>3.1.6. archetype build and tests using Jacoco agent</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -637,7 +637,7 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 </div>
 </div>
 <div class="sect2">
-<h3 id="_notebook_sony_vaio_vpcegfb"><a class="anchor" href="#_notebook_sony_vaio_vpcegfb"></a>Notebook Sony Vaio vpcegfb</h3>
+<h3 id="_notebook_sony_vaio_vpcegfb"><a class="anchor" href="#_notebook_sony_vaio_vpcegfb"></a>3.2. Notebook Sony Vaio vpcegfb</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -649,7 +649,7 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_intrabundle_build_and_tests_2"><a class="anchor" href="#_intrabundle_build_and_tests_2"></a>intrabundle build and tests</h4>
+<h4 id="_intrabundle_build_and_tests_2"><a class="anchor" href="#_intrabundle_build_and_tests_2"></a>3.2.1. intrabundle build and tests</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -708,7 +708,7 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 </div>
 </div>
 <div class="sect3">
-<h4 id="_intrabundle_build_with_jacoco_agent"><a class="anchor" href="#_intrabundle_build_with_jacoco_agent"></a>intrabundle build with jacoco agent</h4>
+<h4 id="_intrabundle_build_with_jacoco_agent"><a class="anchor" href="#_intrabundle_build_with_jacoco_agent"></a>3.2.2. intrabundle build with jacoco agent</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -773,7 +773,7 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 </div>
 </div>
 <div class="sect3">
-<h4 id="_cdi_crud_build_and_tests_2"><a class="anchor" href="#_cdi_crud_build_and_tests_2"></a>cdi crud build and tests</h4>
+<h4 id="_cdi_crud_build_and_tests_2"><a class="anchor" href="#_cdi_crud_build_and_tests_2"></a>3.2.3. cdi crud build and tests</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -832,7 +832,7 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 </div>
 </div>
 <div class="sect3">
-<h4 id="_cdi_crud_with_jacoco_agent"><a class="anchor" href="#_cdi_crud_with_jacoco_agent"></a>cdi crud with jacoco agent</h4>
+<h4 id="_cdi_crud_with_jacoco_agent"><a class="anchor" href="#_cdi_crud_with_jacoco_agent"></a>3.2.4. cdi crud with jacoco agent</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -899,7 +899,7 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 </div>
 </div>
 <div class="sect3">
-<h4 id="_archetype_build_and_test"><a class="anchor" href="#_archetype_build_and_test"></a>archetype build and test</h4>
+<h4 id="_archetype_build_and_test"><a class="anchor" href="#_archetype_build_and_test"></a>3.2.5. archetype build and test</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -951,7 +951,7 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 </div>
 </div>
 <div class="sect3">
-<h4 id="_archetype_build_and_test_with_jacoco_agent"><a class="anchor" href="#_archetype_build_and_test_with_jacoco_agent"></a>archetype build and test with jacoco agent</h4>
+<h4 id="_archetype_build_and_test_with_jacoco_agent"><a class="anchor" href="#_archetype_build_and_test_with_jacoco_agent"></a>3.2.6. archetype build and test with jacoco agent</h4>
 <div class="ulist">
 <ul>
 <li>
