@@ -1,6 +1,6 @@
 
 
-:toc: right
+:toc:
 = Computer benchmarks based on JavaEE integration & functional tests
 
 :icons: font
@@ -9,6 +9,7 @@
 :sectlink:
 :experimental:
 :source-language: asciidoc
+:toc:
 
 http://gist.asciidoctor.org/?c39c0f0785a6fe6ac60f[access it using docgist here]
 
