@@ -1,4 +1,5 @@
 = Computer benchmarks based on JavaEE integration & functional tests
+:hp-tags: JavaEE, tests, benchmark
 :numbered:
 :toc:
 :icons: font
