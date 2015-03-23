@@ -1,5 +1,7 @@
 = A simple component for building "ifless" assertions
 
+== the code
+
 [source,java]
 ----
 package com.myapp.util;
@@ -420,7 +422,8 @@ public class Assertion implements Serializable{
 }
 ----
 
-*Using it:*
+== The sample 
+
 
 [source,java]
 ----
