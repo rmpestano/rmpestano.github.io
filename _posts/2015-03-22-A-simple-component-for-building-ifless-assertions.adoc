@@ -1,4 +1,448 @@
-= Hubpress in action
+= A simple component for building "ifless" assertions
 
-In this post we are going to see hubpress in action
+[source,java]
+----
+package com.myapp.util;
+
+import java.io.Serializable;
+import java.util.*;
+
+import javax.enterprise.context.RequestScoped;
+
+/**
+ * Created by rafael-pestano on 15/03/2015.
+ *
+ * A simple utility component for building "ifless" assertions
+ *
+ */
+@RequestScoped
+public class Assertion implements Serializable{
+
+  private List<Boolean> assertions = new ArrayList<>();
+
+  /**
+   * @param message the exception message to use if there is a FALSE assertion queued
+   * @throws com.myapp.exception.CustomException if there is a FALSE assertion queued
+   */
+  public Assertion throwIfAnyFalse(String message){
+     if(hasFalse()){
+       throw new RuntimeException(getMessage(message));
+     }
+    reset();
+    return this;
+  }
+
+  /**
+   * @param message the exception message to use if there is a TRUE assertion queued
+   * @throws com.myapp.exception.CustomException if there is a TRUE assertion queued
+   */
+  public Assertion throwIfAnyTrue(String message){
+    if(hasTrue()){
+      throw new RuntimeException(getMessage(message));
+    }
+    reset();
+    return this;
+  }
+
+  /**
+   * @param message the exception message to use if there is only FALSE assertion queued
+   * @throws com.myapp.exception.CustomException if there is only FALSE assertion queued
+   */
+  public Assertion throwIfAllFalse(String message){
+    if(isAllFalse()){
+      throw new RuntimeException(getMessage(message));
+    }
+    reset();
+    return this;
+  }
+
+  /**
+   * @param message the exception message to use if there is only TRUE assertion queued
+   * @throws com.myapp.exception.CustomException if there is only TRUE assertion queued
+   */
+  public Assertion throwIfAllTrue(String message){
+    if(isOk()){
+      throw new RuntimeException(getMessage(message));
+    }
+    reset();
+    return this;
+  }
+
+  /**
+   * reset queued assertions
+   */
+  public Assertion reset(){
+    assertions.clear();
+    return this;
+  }
+
+  /**
+   * verifies if there is FALSE asserions
+   * @return true if there is at least a FALSE assertion queued
+   */
+  public boolean hasFalse(){
+      return assertions.contains(Boolean.FALSE);
+  }
+  
+   /**
+   * verifies if there is FALSE assertions
+   * @param reset flag used to clear queued assertions
+   * @return true if there is at least a FALSE assertion queued
+   */
+  public boolean hasFalse(boolean reset){
+    boolean result = hasFalse();
+    if(reset){
+      reset();
+    }
+    return result;
+  }
+
+  /**
+   * verifies if there is TRUE asserions
+   * @return true if there is at least a FALSE assertion queued
+   */
+  public boolean hasTrue(){
+      return assertions.contains(Boolean.TRUE);
+  }
+  
+   /**
+   * verifies if there is TRUE assertions
+   * @param reset flag used to clear queued assertions
+   * @return true if there is at least a FALSE assertion queued
+   */
+  public boolean hasTrue(boolean reset){
+    boolean result = hasTrue();
+    if(reset){
+      reset();
+    }
+    return result;
+  }
+
+  /**
+   * verifies if there is no TRUE asserions queued
+   * @return true if there is at least a FALSE assertion queued
+   */
+  public boolean isFalse(){
+      return !assertions.contains(Boolean.TRUE);
+  }
+  
+  /**
+   * verifies if there is no TRUE asserions queued
+   * @param reset flag used to clear queued assertions 
+   * @return true if there is at least a FALSE assertion queued
+   */
+  public boolean isFalse(boolean reset){
+    boolean result = isFalse();
+    if(reset){
+      reset();
+    }
+    return result;
+  }
+
+
+
+  /**
+   * verifies if there is no FALSE assertion queued
+   * @return true if there is is no FALSE assertion
+   */
+  public boolean isOk(){
+      return assertions.isEmpty() || !assertions.contains(Boolean.FALSE);
+  }
+  
+  /**
+   * verifies if there is no FALSE assertions queued
+   * @param reset flag used to clear queued assertions
+   * @return true if there is no FALSE assertion queued
+   */
+  public boolean isOk(boolean reset){
+    boolean result = isOk();
+    if(reset){
+      reset();
+    }
+    return result;
+  }
+
+  /**
+   * verifica se mensagem esta no bundle
+   * caso nao encontre retorna propria mensagem
+   * @param msg mensagem ou chave do bundle
+   */
+  private String getMessage(String msg) {
+    try {
+      return Messages.get(msg);
+    } catch (MissingResourceException e) {
+      return msg;
+    }
+
+  }
+
+
+  /**
+   * queue TRUE assertion when given expression evaluates to TRUE, queue FALSE otherwise
+   */
+  public Assertion isTrue(boolean expression) {
+    assertions.add(expression);
+    return this;
+  }
+
+  /**
+   * queue TRUE assertion when given expression evaluates to FALSE, queue FALSE otherwise
+   */
+  public Assertion notTrue(boolean expression) {
+    assertions.add(!expression);
+    return this;
+  }
+
+  /**
+   * queue TRUE assertion when given objects are equal, queue FALSE otherwise
+   */
+  public  <T extends Object>  Assertion equals(T obj1, T obj2) {
+    assertions.add(obj1.equals(obj2));
+    return this;
+  }
+
+  /**
+   * queue TRUE assertion when given objects are not equal, queue FALSE otherwise
+   */
+  public <T extends Object>  Assertion notEquals(T obj1, T obj2) {
+    assertions.add(!obj1.equals(obj2));
+    return this;
+  }
+  
+  /**
+   * queue TRUE assertion when given objects is null, queue FALSE otherwise
+   */
+  public Assertion isNull(Object object){
+    assertions.add(object == null);
+    return this;
+  }
+
+
+ /**
+  * queue TRUE assertion when given objects is NOT null, queue FALSE otherwise
+  */
+  public Assertion notNull(Object object) {
+    assertions.add(object != null);
+    return this;
+  }
+
+ /**
+  * queue TRUE assertion when given text has length, queue FALSE otherwise
+  */
+  public Assertion hasLength(String text) {
+    assertions.add(text != null && text.length() > 0);
+    return this;
+  }
+
+   
+ /**
+  * queue TRUE when given text has any character, queue FALSE otherwise
+  */
+  public Assertion hasText(String text){
+
+    if ((text == null || text.length() == 0)) {
+      assertions.add(Boolean.FALSE);
+      return this;
+    }
+    int strLen = text.length();
+    for (int i = 0; i < strLen; i++) {
+      if (!Character.isWhitespace(text.charAt(i))) {
+        assertions.add(Boolean.TRUE);
+        return this;//has text
+      }
+    }
+    //if reach here then does not has text
+    assertions.add(Boolean.FALSE);
+    return this;
+  }
+
+
+ /**
+  * queue TRUE when given text contains the given substring, queue FALSE otherwise
+  */
+  public Assertion contains(String textToSearch, String substring) {
+    if(!containsInternal(textToSearch,substring)){
+      assertions.add(Boolean.FALSE);
+    }else{
+      assertions.add(Boolean.TRUE);
+    }
+   return this;
+  }
+
+ /**
+  * queue TRUE when given text does NOT contains the given substring, queue FALSE otherwise
+  */
+  public Assertion notContains(String textToSearch, String substring) {
+    if(containsInternal(textToSearch,substring)){
+      assertions.add(Boolean.FALSE);
+    }else{
+      assertions.add(Boolean.TRUE);
+    }
+    return this;
+  }
+
+
+
+  /**
+  * queue TRUE when given array has elements; that is, it must not be
+  * {@code null} and must have at least one element. Queue FALSE otherwise
+  */
+  public Assertion notEmpty(Object[] array) {
+    if(array == null || array.length == 0){
+      assertions.add(Boolean.FALSE);
+      return this;
+    }
+    for (Object element : array) {
+      if (element != null) {
+        assertions.add(Boolean.TRUE);
+        return this;
+      }
+    }
+    assertions.add(Boolean.FALSE);
+    return this;
+  }
+
+  /**
+   * Assert that an array has no null elements.
+   * Note: Does not complain if the array is empty!
+   * <pre class="code">Assert.noNullElements(array, "The array must have non-null elements");</pre>
+   * @param array the array to hasFalse
+   */
+   /**
+  * queue TRUE when given array has no null elements; 
+  * Note: Does not queue if the array is empty!
+  */
+  public Assertion notNull(Object[] array) {
+    if (array != null) {
+      for (Object element : array) {
+        if (element == null) {
+          assertions.add(Boolean.FALSE);
+          return this;
+        }
+      }
+    }
+    assertions.add(Boolean.TRUE);
+    return this;
+  }
+
+  /**
+   * queue TRUE when given array has at least one not null element; 
+   * queue FALSE otherwise
+   */
+  public Assertion hasElements(Object[] array){
+    if(hasElementsInternal(array)){
+      assertions.add(Boolean.TRUE);
+    } else{
+      assertions.add(Boolean.FALSE);
+    }
+    return this;
+  }
+
+
+  /**
+   * queue TRUE when given collection has elements; that is, it must not be
+   * {@code null} and must have at least one element.
+   * queue FALSE otherwise
+   */
+  public Assertion notEmpty(Collection<?> collection, String message) {
+    if (collection == null || collection.isEmpty()) {
+      assertions.add(Boolean.FALSE);
+    }else{
+      assertions.add(Boolean.TRUE);
+    }
+    return this;
+  }
+
+
+
+
+
+  /**
+   * Queue TRUE if given Map has entries; that is, it must not be {@code null}
+   * and must have at least one entry. Queue FALSE otherwise
+   */
+  public Assertion notEmpty(Map<?, ?> map) {
+    if(map == null){
+      assertions.add(Boolean.FALSE);
+      return this;
+    }
+    if(hasElementsInternal(map.entrySet().toArray())) {
+        assertions.add(Boolean.TRUE);
+        return this;
+    }
+    assertions.add(Boolean.TRUE);
+    return this;
+  }
+
+
+  //internal checks, they not queue assertions
+
+  private boolean hasTextInternal(String text){
+    if ((text == null || text.length() == 0)) {
+      return false;
+    }
+    int strLen = text.length();
+    for (int i = 0; i < strLen; i++) {
+      if (!Character.isWhitespace(text.charAt(i))) {
+        return true;//has text
+      }
+    }
+    //if reach here then does not has text
+    return false;
+  }
+
+
+  private boolean containsInternal(String textToSearch, String substring){
+    if(textToSearch == null || substring == null){
+      return false;
+    }
+    //if blank
+    if(textToSearch.trim().equals("") || substring.trim().equals("")){
+      return false;
+    }
+    
+    return textToSearch.contains(substring);
+  }
+
+  
+  private boolean hasElementsInternal(Object[] array){
+    if(array == null || array.length == 0){
+      return false;
+    }
+    for (Object element : array) {
+      if (element != null) {
+        return true;
+      }
+    }
+    return false;
+  }
+ 
+}
+----
+
+*Using it:*
+
+[source,java]
+----
+@Inject 
+Assertion assertion;
+
+
+public void aMethod(Foo foo){
+  assertion.notNull(foo).
+  hasText(foo.aProperty).isFalse(someLogic()).
+  thowIfAnyFalse("error message")
+  //if nothing is thrown you can still asserting
+  .isEmpty(foo.array).isFalse(someLogic()).thowIfAllFalse("another message");
+   
+  //same as
+  if(foo == null || "".equals(foo.aProperty) || !someLogic()){
+     throw new RuntimeException("error message");
+  }
+  
+  if(foo.array != null && foo.array.isEmpty() && !someLogic()){
+    throw new RuntimeException("another message");
+  }
+}
+----
 
