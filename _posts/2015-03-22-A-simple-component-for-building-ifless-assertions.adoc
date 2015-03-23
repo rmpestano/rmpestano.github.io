@@ -1,6 +1,5 @@
 = A simple component for building "ifless" assertions
 :toc:
-
 :icons: font
 :linkattrs:
 :sectanchors:
