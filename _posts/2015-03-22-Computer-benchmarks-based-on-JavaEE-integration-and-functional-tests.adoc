@@ -1,4 +1,4 @@
-[access it using docgist here]
+
 
 :toc: right
 = Computer benchmarks based on JavaEE integration & functional tests
@@ -10,6 +10,7 @@
 :experimental:
 :source-language: asciidoc
 
+http://gist.asciidoctor.org/?c39c0f0785a6fe6ac60f[access it using docgist here]
 
 ----
 mvn -version 
