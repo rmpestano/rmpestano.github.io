@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Computer benchmarks based on JavaEE integration &amp; functional tests</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//rmpestano.github.io/themes/Casper/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//rmpestano.github.io/themes/Casper/assets/css/screen.css?v=1.0.0" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html" />
+    
+    <meta property="og:site_name" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Computer benchmarks based on JavaEE integration &amp; functional tests" />
+    <meta property="og:description" content="mvn -version Apache Maven 3.0.5 Maven home: /usr/share/maven Java version: 1.8.0_40, vendor: Oracle Corporation Java home: /usr/lib/jvm/java-8-oracle/jre Default locale: en_US, platform encoding: UTF-8 OS name: &quot;linux&quot;, version: &quot;3...." />
+    <meta property="og:url" content="https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html" />
+    <meta property="article:published_time" content="2015-03-22T03:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-03-23T00:34:38.872Z" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Computer benchmarks based on JavaEE integration &amp; functional tests" />
+    <meta name="twitter:description" content="mvn -version Apache Maven 3.0.5 Maven home: /usr/share/maven Java version: 1.8.0_40, vendor: Oracle Corporation Java home: /usr/lib/jvm/java-8-oracle/jre Default locale: en_US, platform encoding: UTF-8 OS name: &quot;linux&quot;, version: &quot;3...." />
+    <meta name="twitter:url" content="https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "",
+    "author": {
+        "@type": "Person",
+        "name": "Rafael M. Pestano",
+        "image": "https://avatars.githubusercontent.com/u/1592273?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "http://rpestano.wordpress.com"
+    },
+    "headline": "Computer benchmarks based on JavaEE integration &amp; functional tests",
+    "url": "https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html",
+    "datePublished": "2015-03-22T03:00:00.000Z",
+    "dateModified": "2015-03-23T00:34:38.872Z",
+    "description": "mvn -version Apache Maven 3.0.5 Maven home: /usr/share/maven Java version: 1.8.0_40, vendor: Oracle Corporation Java home: /usr/lib/jvm/java-8-oracle/jre Default locale: en_US, platform encoding: UTF-8 OS name: &quot;linux&quot;, version: &quot;3...."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="" href="https://rmpestano.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template">
+
+    
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="https://rmpestano.github.io">Home</a>
+        <!-- <a class="subscribe-button icon-feed" href="https://rmpestano.github.io/rss/">Subscribe</a> -->
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Computer benchmarks based on JavaEE integration &amp; functional tests</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-03-22">22 March 2015</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>mvn -version
+Apache Maven 3.0.5
+Maven home: /usr/share/maven
+Java version: 1.8.0_40, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.16.0-31-generic", arch: "amd64", family: "unix"
+ubuntu 14.04</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_results"><a class="anchor" href="#_results"></a>Results</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 14%;">
+<col style="width: 14%;">
+<col style="width: 14%;">
+<col style="width: 14%;">
+<col style="width: 14%;">
+<col style="width: 14%;">
+<col style="width: 14%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Computer</th>
+<th class="tableblock halign-left valign-top">intrabundle tests</th>
+<th class="tableblock halign-left valign-top">intrabundle tests with jacoco</th>
+<th class="tableblock halign-left valign-top">cdi-crud tests</th>
+<th class="tableblock halign-left valign-top">cdi-crud tests with jacoco</th>
+<th class="tableblock halign-left valign-top">archetype tests</th>
+<th class="tableblock halign-left valign-top">archetype tests with jacoco</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Asus S46cb (i5 3317)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">38 sec</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1:10 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1:30 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1:42 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3:15 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3:42 min</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vaio vpcegfb (i5 2410)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36 s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1:08 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1:22 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1:51 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2:53 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3:34 min</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_projects"><a class="anchor" href="#_projects"></a>Projects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>restart your machine before each project</p>
+</div>
+<div class="sect2">
+<h3 id="__a_href_http_github_com_rmpestano_intrabundle_intrabundle_project_a"><a class="anchor" href="#__a_href_http_github_com_rmpestano_intrabundle_intrabundle_project_a"></a><a href="http://github.com/rmpestano/intrabundle">Intrabundle project</a></h3>
+<div class="paragraph">
+<p>integration tests using JBoss forge</p>
+</div>
+<div class="sect3">
+<h4 id="_checkout_sources"><a class="anchor" href="#_checkout_sources"></a>checkout sources</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>git clone <a href="https://github.com/rmpestano/intrabundle.git" class="bare">https://github.com/rmpestano/intrabundle.git</a></p>
+</li>
+<li>
+<p>cd intrabundle</p>
+</li>
+<li>
+<p>git reset --hard 00f05bd2d8e9f600850eb628141716bc2821160d</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_download_maven_dependencies"><a class="anchor" href="#_download_maven_dependencies"></a>download maven dependencies</h4>
+<div class="listingblock">
+<div class="content">
+<pre>mvn dependency:tree -Ptests</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_execute_build_and_tests"><a class="anchor" href="#_execute_build_and_tests"></a>Execute build and tests</h3>
+<div class="listingblock">
+<div class="content">
+<pre>mvn clean test -Ptests</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_execute_build_and_tests_using_jacoco_agent"><a class="anchor" href="#_execute_build_and_tests_using_jacoco_agent"></a>Execute build and tests using Jacoco agent</h4>
+<div class="listingblock">
+<div class="content">
+<pre>mvn clean test -P tests -Pjacoco</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__a_href_http_github_com_rmpestano_cdi_crud_cdi_crud_project_a"><a class="anchor" href="#__a_href_http_github_com_rmpestano_cdi_crud_cdi_crud_project_a"></a><a href="http://github.com/rmpestano/cdi-crud">cdi-crud project</a></h3>
+<div class="paragraph">
+<p>Java EE project with various kinds of Arquillian tests (it, ft, bdd)</p>
+</div>
+<div class="sect3">
+<h4 id="_checkout_sources_2"><a class="anchor" href="#_checkout_sources_2"></a>checkout sources</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>git clone <a href="https://github.com/rmpestano/cdi-crud.git" class="bare">https://github.com/rmpestano/cdi-crud.git</a></p>
+</li>
+<li>
+<p>cd cdi-crud</p>
+</li>
+<li>
+<p>git reset --hard 6f86c59bd619af8f7ce4997a3dc60786884911f4</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_download_dependencies"><a class="anchor" href="#_download_dependencies"></a>Download dependencies</h4>
+<div class="listingblock">
+<div class="content">
+<pre>mvn dependency:tree -P wildfly-managed</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_execute_build_and_tests_2"><a class="anchor" href="#_execute_build_and_tests_2"></a>Execute build and tests</h4>
+<div class="listingblock">
+<div class="content">
+<pre>mvn clean package -P tests -P wildfly-managed -Dversion.selenium=2.45.0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="small">you may need to upgrade selenium version to run ft-tests (if browser opens when nothing happens), use build param <strong>-Dversion.selenium=2.45.0</strong> for exemple.</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_execute_build_and_tests_with_jacoco_agent"><a class="anchor" href="#_execute_build_and_tests_with_jacoco_agent"></a>Execute build and tests with jacoco agent</h4>
+<div class="listingblock">
+<div class="content">
+<pre>mvn clean package -P tests -P wildfly-managed -Pjacoco -Dversion.selenium=2.45.0</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__a_href_http_github_com_conventions_archetype_conventions_archetype_project_a"><a class="anchor" href="#__a_href_http_github_com_conventions_archetype_conventions_archetype_project_a"></a><a href="http://github.com/conventions/archetype">conventions archetype project</a></h3>
+<div class="paragraph">
+<p>A bit more complex Java EE project with various kinds of Arquillian tests (it, ft, bdd)</p>
+</div>
+<div class="sect3">
+<h4 id="_checkout_sources_3"><a class="anchor" href="#_checkout_sources_3"></a>checkout sources</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>git clone <a href="https://github.com/conventions/archetype.git" class="bare">https://github.com/conventions/archetype.git</a></p>
+</li>
+<li>
+<p>cd archetype</p>
+</li>
+<li>
+<p>git reset --hard 952a7b5f4ac58726f78c63034a9bcf8b1630b495</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_download_dependencies_2"><a class="anchor" href="#_download_dependencies_2"></a>Download dependencies</h4>
+<div class="listingblock">
+<div class="content">
+<pre>mvn dependency:tree -P wildfly-managed</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_execute_build_and_tests_3"><a class="anchor" href="#_execute_build_and_tests_3"></a>Execute build and tests</h4>
+<div class="listingblock">
+<div class="content">
+<pre>mvn clean package -P all-tests -P wildfly-managed -Dversion.selenium=2.45.0</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_execute_build_and_tests_with_jacoco_agent_2"><a class="anchor" href="#_execute_build_and_tests_with_jacoco_agent_2"></a>Execute build and tests with jacoco agent</h4>
+<div class="listingblock">
+<div class="content">
+<pre>mvn clean package -P all-tests -P wildfly-managed -Pjacoco -Dversion.selenium=2.45.0</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_computers_benchmark"><a class="anchor" href="#_computers_benchmark"></a>Computers benchmark</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_notebook_asus_s46cb"><a class="anchor" href="#_notebook_asus_s46cb"></a>Notebook Asus S46cb</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>CPU core i5 3317u</p>
+</li>
+<li>
+<p>6GB RAM</p>
+</li>
+<li>
+<p>ssd 24gb (used in /opt)</p>
+</li>
+<li>
+<p>nvidia geforce 740m</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_intrabundle_build_and_tests"><a class="anchor" href="#_intrabundle_build_and_tests"></a>intrabundle build and tests</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp 1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 45.972 s
+[INFO] Finished at: 2015-03-14T21:47:46-03:00
+[INFO] Final Memory: 36M/193M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 31.588 s
+[INFO] Finished at: 2015-03-14T21:48:51-03:00
+[INFO] Final Memory: 41M/281M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_intrabundle_build_and_tests_with_jacoco_agent"><a class="anchor" href="#_intrabundle_build_and_tests_with_jacoco_agent"></a>intrabundle build and tests with jacoco agent</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp 1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:20 min
+[INFO] Finished at: 2015-03-14T21:50:50-03:00
+[INFO] Final Memory: 43M/203M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp 2:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:00 min
+[INFO] Finished at: 2015-03-14T21:52:39-03:00
+[INFO] Final Memory: 38M/382M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cdi_crud_build_and_tests"><a class="anchor" href="#_cdi_crud_build_and_tests"></a>cdi-crud build and tests</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 1</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/opt/projects/benchmark/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/projects/benchmark/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [186 msecs]
+[INFO] Building war: /opt/projects/benchmark/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:48.056s
+[INFO] Finished at: Sat Mar 14 23:52:16 BRT 2015
+[INFO] Final Memory: 54M/452M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/opt/projects/benchmark/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/projects/benchmark/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [134 msecs]
+[INFO] Building war: /opt/projects/benchmark/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:21.403s</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cdi_crud_build_and_tests_with_jacoco_agent"><a class="anchor" href="#_cdi_crud_build_and_tests_with_jacoco_agent"></a>cdi-crud build and tests with jacoco agent</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 1</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ cdi-crud ---
+[INFO] Analyzed bundle 'cdi-crud' with 18 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/opt/projects/benchmark/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/projects/benchmark/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [142 msecs]
+[INFO] Building war: /opt/projects/benchmark/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:42.587s
+[INFO] Finished at: Sun Mar 15 00:00:01 BRT 2015
+[INFO] Final Memory: 54M/487M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ cdi-crud ---
+[INFO] Analyzed bundle 'cdi-crud' with 18 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/opt/projects/benchmark/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/projects/benchmark/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [131 msecs]
+[INFO] Building war: /opt/projects/benchmark/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:41.216s
+[INFO] Finished at: Sun Mar 15 00:02:00 BRT 2015
+[INFO] Final Memory: 54M/483M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetype_build_and_tests"><a class="anchor" href="#_archetype_build_and_tests"></a>archetype build and tests</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 1</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 50, Failures: 0, Errors: 3, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:20.846s
+[INFO] Finished at: Sun Mar 15 00:15:02 BRT 2015
+[INFO] Final Memory: 42M/242M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Results :
+
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/opt/projects/benchmark/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/projects/benchmark/archetype/src/main/webapp]
+[INFO] Webapp assembled in [97 msecs]
+[INFO] Building war: /opt/projects/benchmark/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:11.078s
+[INFO] Finished at: Sun Mar 15 00:18:40 BRT 2015
+[INFO] Final Memory: 52M/461M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetype_build_and_tests_using_jacoco_agent"><a class="anchor" href="#_archetype_build_and_tests_using_jacoco_agent"></a>archetype build and tests using Jacoco agent</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 1</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ archetype ---
+[INFO] Analyzed bundle 'conventions-archetype' with 14 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/opt/projects/benchmark/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/projects/benchmark/archetype/src/main/webapp]
+[INFO] Webapp assembled in [123 msecs]
+[INFO] Building war: /opt/projects/benchmark/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:44.655s
+[INFO] Finished at: Sun Mar 15 00:23:20 BRT 2015
+[INFO] Final Memory: 52M/508M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ archetype ---
+[INFO] Analyzed bundle 'conventions-archetype' with 14 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/opt/projects/benchmark/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/projects/benchmark/archetype/src/main/webapp]
+[INFO] Webapp assembled in [114 msecs]
+[INFO] Building war: /opt/projects/benchmark/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:40.978s
+[INFO] Finished at: Sun Mar 15 00:27:34 BRT 2015
+[INFO] Final Memory: 52M/482M</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_notebook_sony_vaio_vpcegfb"><a class="anchor" href="#_notebook_sony_vaio_vpcegfb"></a>Notebook Sony Vaio vpcegfb</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>CPU Intel® Core™ i5-2410M 2.30GHz × 4</p>
+</li>
+<li>
+<p>8GB RAM</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_intrabundle_build_and_tests_2"><a class="anchor" href="#_intrabundle_build_and_tests_2"></a>intrabundle build and tests</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp 1</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO]
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 37.735s
+[INFO] Finished at: Sat Mar 21 09:53:27 BRT 2015
+[INFO] Final Memory: 41M/364M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO]
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 35.007s
+[INFO] Finished at: Sat Mar 21 10:14:21 BRT 2015
+[INFO] Final Memory: 39M/364M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_intrabundle_build_with_jacoco_agent"><a class="anchor" href="#_intrabundle_build_with_jacoco_agent"></a>intrabundle build with jacoco agent</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.1.201405082137:report (report) @ intrabundle ---
+[INFO] Analyzed bundle 'intrabundle' with 32 classes
+[INFO]
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:15.332s
+[INFO] Finished at: Sat Mar 21 10:20:26 BRT 2015
+[INFO] Final Memory: 43M/370M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.1.201405082137:report (report) @ intrabundle ---
+[INFO] Analyzed bundle 'intrabundle' with 32 classes
+[INFO]
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:03.813s
+[INFO] Finished at: Sat Mar 21 10:22:39 BRT 2015
+[INFO] Final Memory: 46M/387M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cdi_crud_build_and_tests_2"><a class="anchor" href="#_cdi_crud_build_and_tests_2"></a>cdi crud build and tests</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [93 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:21.145s
+[INFO] Finished at: Sat Mar 21 10:34:56 BRT 2015
+[INFO] Final Memory: 48M/408M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [102 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:24.011s
+[INFO] Finished at: Sat Mar 21 10:36:44 BRT 2015
+[INFO] Final Memory: 48M/396M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cdi_crud_with_jacoco_agent"><a class="anchor" href="#_cdi_crud_with_jacoco_agent"></a>cdi crud with jacoco agent</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ cdi-crud ---
+[INFO] Analyzed bundle 'cdi-crud' with 18 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [99 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:57.416s
+[INFO] Finished at: Sat Mar 21 10:39:36 BRT 2015
+[INFO] Final Memory: 54M/500M
+[INFO] ------------------------------------------------------------------------</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp2:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ cdi-crud ---
+[INFO] Analyzed bundle 'cdi-crud' with 18 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [99 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:42.236s
+[INFO] Finished at: Sat Mar 21 10:42:26 BRT 2015
+[INFO] Final Memory: 57M/500M
+[INFO] ------------------------------------------------------------------------</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetype_build_and_test"><a class="anchor" href="#_archetype_build_and_test"></a>archetype build and test</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 50, Failures: 0, Errors: 3, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:40.963s
+[INFO] Finished at: Sat Mar 21 17:25:47 BRT 2015
+[INFO] Final Memory: 43M/399M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp2:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Results :
+
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [130 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:06.332s
+[INFO] Finished at: Sat Mar 21 17:29:41 BRT 2015
+[INFO] Final Memory: 45M/401M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetype_build_and_test_with_jacoco_agent"><a class="anchor" href="#_archetype_build_and_test_with_jacoco_agent"></a>archetype build and test with jacoco agent</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Results :
+
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ archetype ---
+[INFO] Analyzed bundle 'conventions-archetype' with 14 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [133 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:38.436s
+[INFO] Finished at: Sat Mar 21 17:33:53 BRT 2015
+[INFO] Final Memory: 51M/404M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Results :
+
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ archetype ---
+[INFO] Analyzed bundle 'conventions-archetype' with 14 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [85 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:31.319s
+[INFO] Finished at: Sun Mar 22 10:24:36 BRT 2015
+[INFO] Final Memory: 57M/398M</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="" style="background-image: url(https://avatars.githubusercontent.com/u/1592273?v=3)"><span class="hidden">Rafael M. Pestano's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="">Rafael M. Pestano</a></h4>
+
+                    <p>Read <a href="">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Porto Alegre RS/Brasil</span>
+                    <span class="author-link icon-link"><a href="http://rpestano.wordpress.com">http://rpestano.wordpress.com</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Computer%20benchmarks%20based%20on%20JavaEE%20integration%20%26%20functional%20tests&amp;url=https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="https://rmpestano.github.io"></a> &copy; 2015</section>
+        <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script type="text/javascript" src="//rmpestano.github.io/themes/Casper/assets/js/jquery.fitvids.js?v=1.0.0"></script>
+    <script type="text/javascript" src="//rmpestano.github.io/themes/Casper/assets/js/index.js?v=1.0.0"></script>
+
+</body>
+</html>
