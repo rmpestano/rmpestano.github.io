@@ -1,10 +1,1 @@
-{
-  "meta": {
-    "username": "rmpestano",
-    "repositoryName": "rmpestano.github.io",
-    "branch": "master"
-  },
-  "theme": {
-    "name": "Casper"
-  }
-}
+{"meta":{"username":"rmpestano","repositoryName":"rmpestano.github.io","branch":"master"},"site":{"title":"Rafael Pestano's web blog","url":"https://rmpestano.github.io"},"socialnetwork":{"email":"rmpestanoATgmail.com","twitter":"@realpestano","github":"rmpestano"},"theme":{"name":"Casper","url":"//rmpestano.github.io/themes/Casper"}}
