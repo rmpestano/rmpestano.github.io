@@ -23,7 +23,7 @@
     <meta property="og:description" content="access it using docgist here mvn -version Apache Maven 3.0.5 Maven home: /usr/share/maven Java version: 1.8.0_40, vendor: Oracle Corporation Java home: /usr/lib/jvm/java-8-oracle/jre Default locale: en_US, platform encoding: UTF-8..." />
     <meta property="og:url" content="https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html" />
     <meta property="article:published_time" content="2015-03-22T03:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-03-25T01:55:07.861Z" />
+    <meta property="article:modified_time" content="2015-03-25T01:56:57.166Z" />
     <meta property="article:tag" content="JavaEE" />
     <meta property="article:tag" content="tests" />
     <meta property="article:tag" content="benchmark" />
@@ -48,7 +48,7 @@
     "headline": "Computer benchmarks based on JavaEE integration &amp; functional tests",
     "url": "https://rmpestano.github.io/2015/03/22/Computer-benchmarks-based-on-JavaEE-integration-and-functional-tests.html",
     "datePublished": "2015-03-22T03:00:00.000Z",
-    "dateModified": "2015-03-25T01:55:07.861Z",
+    "dateModified": "2015-03-25T01:56:57.166Z",
     "keywords": "JavaEE,  tests,  benchmark",
     "description": "access it using docgist here mvn -version Apache Maven 3.0.5 Maven home: /usr/share/maven Java version: 1.8.0_40, vendor: Oracle Corporation Java home: /usr/lib/jvm/java-8-oracle/jre Default locale: en_US, platform encoding: UTF-8..."
 }
@@ -143,6 +143,15 @@ ubuntu 14.04</pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1:51 min</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2:53 min</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3:34 min</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vaio vpcegfb (i7-2670QM)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26 s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54 s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1:03 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1:20 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2:40 min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2:59 min</p></td>
 </tr>
 </tbody>
 </table>
@@ -1020,6 +1029,391 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Total time: 3:31.319s
 [INFO] Finished at: Sun Mar 22 10:24:36 BRT 2015
 [INFO] Final Memory: 57M/398M</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_notebook_sony_vaio_vpcegfb_2"><a class="anchor" href="#_notebook_sony_vaio_vpcegfb_2"></a>3.3. Notebook Sony Vaio vpcegfb</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>CPU Intel® Core™ i7-2670QM 2.20GHz × 8</p>
+</li>
+<li>
+<p>8GB RAM</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_intrabundle_build_and_tests_3"><a class="anchor" href="#_intrabundle_build_and_tests_3"></a>3.3.1. intrabundle build and tests</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp 1</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO]
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 26.859s
+[INFO] Finished at: Tue Mar 24 21:44:47 BRT 2015
+[INFO] Final Memory: 39M/368M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO]
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 26.199s
+[INFO] Finished at: Tue Mar 24 21:46:07 BRT 2015
+[INFO] Final Memory: 42M/525M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_intrabundle_build_with_jacoco_agent_2"><a class="anchor" href="#_intrabundle_build_with_jacoco_agent_2"></a>3.3.2. intrabundle build with jacoco agent</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.1.201405082137:report (report) @ intrabundle ---
+[INFO] Analyzed bundle 'intrabundle' with 32 classes
+[INFO]
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 54.374s
+[INFO] Finished at: Tue Mar 24 21:47:42 BRT 2015
+[INFO] Final Memory: 50M/560M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.1.201405082137:report (report) @ intrabundle ---
+[INFO] Analyzed bundle 'intrabundle' with 32 classes
+[INFO]
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 54.083s
+[INFO] Finished at: Tue Mar 24 21:48:48 BRT 2015
+[INFO] Final Memory: 45M/367M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cdi_crud_build_and_tests_3"><a class="anchor" href="#_cdi_crud_build_and_tests_3"></a>3.3.3. cdi crud build and tests</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [58 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:03.038s
+[INFO] Finished at: Tue Mar 24 22:21:20 BRT 2015
+[INFO] Final Memory: 49M/414M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [55 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:03.681s
+[INFO] Finished at: Tue Mar 24 22:22:42 BRT 2015
+[INFO] Final Memory: 48M/404M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cdi_crud_with_jacoco_agent_2"><a class="anchor" href="#_cdi_crud_with_jacoco_agent_2"></a>3.3.4. cdi crud with jacoco agent</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ cdi-crud ---
+[INFO] Analyzed bundle 'cdi-crud' with 18 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [74 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:20.153s
+[INFO] Finished at: Tue Mar 24 22:25:36 BRT 2015
+[INFO] Final Memory: 54M/422M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp2:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ cdi-crud ---
+[INFO] Analyzed bundle 'cdi-crud' with 18 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [56 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:19.682s
+[INFO] Finished at: Tue Mar 24 22:27:42 BRT 2015
+[INFO] Final Memory: 54M/422M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetype_build_and_test_2"><a class="anchor" href="#_archetype_build_and_test_2"></a>3.3.5. archetype build and test</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [108 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:43.261s
+[INFO] Finished at: Tue Mar 24 22:31:18 BRT 2015
+[INFO] Final Memory: 46M/409M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attemp2:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [81 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:38.337s
+[INFO] Finished at: Tue Mar 24 22:34:10 BRT 2015
+[INFO] Final Memory: 46M/405M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetype_build_and_test_with_jacoco_agent_2"><a class="anchor" href="#_archetype_build_and_test_with_jacoco_agent_2"></a>3.3.6. archetype build and test with jacoco agent</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 1:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ archetype ---
+[INFO] Analyzed bundle 'conventions-archetype' with 14 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [101 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:00.297s
+[INFO] Finished at: Tue Mar 24 22:38:58 BRT 2015
+[INFO] Final Memory: 51M/412M</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>attempt 2</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ archetype ---
+[INFO] Analyzed bundle 'conventions-archetype' with 14 classes
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [69 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:58.101s
+[INFO] Finished at: Tue Mar 24 22:42:33 BRT 2015
+[INFO] Final Memory: 51M/404M</pre>
 </div>
 </div>
 </div>
