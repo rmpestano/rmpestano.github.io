@@ -50,6 +50,14 @@ ubuntu 14.04
 |1:51 min
 |2:53 min
 |3:34 min
+
+|Vaio vpcegfb (i7-2670QM) 
+|26 s
+|54 s
+|1:03 min
+|1:20 min
+|2:40 min
+|2:59 min
 |===	
 
 
@@ -704,5 +712,314 @@ Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Total time: 3:31.319s
 [INFO] Finished at: Sun Mar 22 10:24:36 BRT 2015
 [INFO] Final Memory: 57M/398M
+
+----
+
+=== Notebook Sony Vaio vpcegfb
+
+* CPU Intel® Core™ i7-2670QM 2.20GHz × 8 
+* 8GB RAM
+
+==== intrabundle build and tests
+
+* attemp 1
+
+----
+Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 26.859s
+[INFO] Finished at: Tue Mar 24 21:44:47 BRT 2015
+[INFO] Final Memory: 39M/368M
+
+----
+
+* attempt 2
+
+----
+Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 26.199s
+[INFO] Finished at: Tue Mar 24 21:46:07 BRT 2015
+[INFO] Final Memory: 42M/525M
+
+----
+
+==== intrabundle build with jacoco agent
+
+* attempt 1:
+
+----
+Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.1.201405082137:report (report) @ intrabundle ---
+[INFO] Analyzed bundle 'intrabundle' with 32 classes
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 54.374s
+[INFO] Finished at: Tue Mar 24 21:47:42 BRT 2015
+[INFO] Final Memory: 50M/560M
+
+----
+
+* attempt 2:
+
+----
+Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jasperreports-maven-plugin:1.0-beta-1:compile-reports (default) @ intrabundle ---
+[INFO] Compiling 2 report design files.
+[INFO] Compiling report file: general.jrxml
+[INFO] Compiling report file: metrics.jrxml
+[INFO] Compiled 2 report design files.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.1.201405082137:report (report) @ intrabundle ---
+[INFO] Analyzed bundle 'intrabundle' with 32 classes
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ intrabundle ---
+[INFO] Building jar: /home/pestano/projects/intrabundle/target/intrabundle-1.0.2.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 54.083s
+[INFO] Finished at: Tue Mar 24 21:48:48 BRT 2015
+[INFO] Final Memory: 45M/367M
+
+----
+
+==== cdi crud build and tests
+
+* attemp1:
+
+----
+Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [58 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:03.038s
+[INFO] Finished at: Tue Mar 24 22:21:20 BRT 2015
+[INFO] Final Memory: 49M/414M
+----
+
+* attempt 2
+
+----
+Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [55 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:03.681s
+[INFO] Finished at: Tue Mar 24 22:22:42 BRT 2015
+[INFO] Final Memory: 48M/404M
+
+----
+
+==== cdi crud with jacoco agent
+
+* attemp1:
+
+----
+Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ cdi-crud ---
+[INFO] Analyzed bundle 'cdi-crud' with 18 classes
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [74 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:20.153s
+[INFO] Finished at: Tue Mar 24 22:25:36 BRT 2015
+[INFO] Final Memory: 54M/422M
+----
+
+* attemp2:
+
+----
+Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ cdi-crud ---
+[INFO] Analyzed bundle 'cdi-crud' with 18 classes
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ cdi-crud ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [cdi-crud] in [/home/pestano/projects/cdi-crud/target/cdi-crud]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/cdi-crud/src/main/webapp]
+[INFO] Webapp assembled in [56 msecs]
+[INFO] Building war: /home/pestano/projects/cdi-crud/target/cdi-crud.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:19.682s
+[INFO] Finished at: Tue Mar 24 22:27:42 BRT 2015
+[INFO] Final Memory: 54M/422M
+
+----
+
+==== archetype build and test
+
+* attemp1:
+
+----
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [108 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:43.261s
+[INFO] Finished at: Tue Mar 24 22:31:18 BRT 2015
+[INFO] Final Memory: 46M/409M
+
+----
+
+* attemp2:
+
+----
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [81 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:38.337s
+[INFO] Finished at: Tue Mar 24 22:34:10 BRT 2015
+[INFO] Final Memory: 46M/405M
+----
+
+==== archetype build and test with jacoco agent
+
+
+* attempt 1:
+
+----
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ archetype ---
+[INFO] Analyzed bundle 'conventions-archetype' with 14 classes
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [101 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:00.297s
+[INFO] Finished at: Tue Mar 24 22:38:58 BRT 2015
+[INFO] Final Memory: 51M/412M
+
+----
+
+* attempt 2
+
+----
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.0.201403182114:report (report) @ archetype ---
+[INFO] Analyzed bundle 'conventions-archetype' with 14 classes
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ archetype ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [archetype] in [/home/pestano/projects/archetype/target/archetype]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/pestano/projects/archetype/src/main/webapp]
+[INFO] Webapp assembled in [69 msecs]
+[INFO] Building war: /home/pestano/projects/archetype/target/archetype.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:58.101s
+[INFO] Finished at: Tue Mar 24 22:42:33 BRT 2015
+[INFO] Final Memory: 51M/404M
 
 ----
